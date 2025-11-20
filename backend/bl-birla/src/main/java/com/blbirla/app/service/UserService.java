@@ -17,9 +17,22 @@ public class UserService {
     }
 
     public User registerUser(User user) {
+
+        // 1. Check duplicate email
         if (userRepo.findByEmail(user.getEmail()).isPresent()) {
             throw new RuntimeException("Email already exists.");
         }
+
+        // 2. Convert plain password -> passwordHash
+        if (user.getPasswordHash() == null || user.getPasswordHash().isEmpty()) {
+            throw new RuntimeException("Password cannot be empty");
+        }
+
+        // hash the incoming password (from frontend)
+        String hashed = encoder.encode(user.getPasswordHash());
+        user.setPasswordHash(hashed);
+
+        // 3. Save user
         return userRepo.save(user);
     }
 
@@ -36,4 +49,3 @@ public class UserService {
         );
     }
 }
-
