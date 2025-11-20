@@ -11,7 +11,7 @@ import java.time.LocalDate;
 public class Medicine {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long medicineId;
+    private Long id;
 
     @Column
     private String batchNo;

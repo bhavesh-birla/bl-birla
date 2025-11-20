@@ -40,7 +40,7 @@ public class OrderService {
         for (OrderItem ci : cartItems) {
 
             // Fetch actual medicine from DB
-            Medicine med = medRepo.findById(ci.getMedicine().getMedicineId())
+            Medicine med = medRepo.findById(ci.getMedicine().getId())
                     .orElseThrow(() -> new RuntimeException("Medicine not found"));
 
             if (med.getStockQuantity() < ci.getQuantity()) {
@@ -69,7 +69,7 @@ public class OrderService {
     }
 
     public List<Order> getOrdersByUser(Long userId) {
-        return orderRepo.findByUserIdOrderByOrderDateDesc(userId);
+        return orderRepo.findByUser_IdOrderByOrderDateDesc(userId);
     }
 }
 
