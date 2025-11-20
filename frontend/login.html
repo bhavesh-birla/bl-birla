@@ -37,7 +37,7 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
     e.preventDefault();
     const data = Object.fromEntries(new FormData(e.target));
 
-    const res = await apiCall("POST", "/users/login", data);
+    const res = await apiCall("POST", "/api/users/login", data);
 
     if (res.success) {
         saveUser(res.userId, res.shopName);
