@@ -14,15 +14,10 @@ import java.util.List;
 @CrossOrigin
 public class OrderController {
     private final OrderService orderService;
-    private final MedicineService medicineService;
-    private final UserService userService;
 
-    public OrderController(OrderService orderService,
-                           MedicineService medicineService,
-                           UserService userService) {
+
+    public OrderController(OrderService orderService) {
         this.orderService = orderService;
-        this.medicineService = medicineService;
-        this.userService = userService;
     }
 
     @GetMapping("/{userId}")
