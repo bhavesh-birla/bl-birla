@@ -19,9 +19,6 @@ public class Medicine {
     @Column
     private String name;
 
-    @Column(length = 1000)
-    private String description;
-
     @Column
     private Double wholesalePrice;
 

@@ -1,9 +1,7 @@
 package com.blbirla.app.controller;
 
 import com.blbirla.app.entity.Order;
-import com.blbirla.app.service.MedicineService;
-import com.blbirla.app.service.OrderService;
-import com.blbirla.app.service.UserService;
+import com.blbirla.app.service.impl.OrderServiceImpl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,10 +11,10 @@ import java.util.List;
 @RequestMapping("/api/orders")
 @CrossOrigin
 public class OrderController {
-    private final OrderService orderService;
+    private final OrderServiceImpl orderService;
 
 
-    public OrderController(OrderService orderService) {
+    public OrderController(OrderServiceImpl orderService) {
         this.orderService = orderService;
     }
 
